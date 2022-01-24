@@ -10,7 +10,7 @@
 # docker might not be installed, so check for it first
 # supply `--no-trunc` so that we get the whole commandline for launching the container
 echo "--------and docker too--------"
-if [ "$(which docker)" ]; then sudo docker ps --no-trunc | grep "java\|jdk"; fi
+if [ "$(which docker)" ]; then docker ps --no-trunc | grep "java\|jdk"; fi
 
 
 # ps
@@ -24,10 +24,10 @@ ps -ef | grep -i 'java\|jdk' | grep -v grep
 # according to the POSIX standard, the default behavior of `find` is to not follow symlinks (also -P)
 #   https://linux.die.net/man/1/find
 echo "--------finding--------"
-sudo find /usr -name '*log4j*' | grep "jar\|properties"
-sudo find /bin -name '*log4j*'  | grep "jar\|properties"
-sudo find /var/lib -name '*log4j*'  | grep "jar\|properties"
-sudo find /opt -name '*log4j*'  | grep "jar\|properties"
+find /usr -name '*log4j*' | grep "jar\|properties"
+find /bin -name '*log4j*'  | grep "jar\|properties"
+find /var/lib -name '*log4j*'  | grep "jar\|properties"
+find /opt -name '*log4j*'  | grep "jar\|properties"
 
 
 # which
